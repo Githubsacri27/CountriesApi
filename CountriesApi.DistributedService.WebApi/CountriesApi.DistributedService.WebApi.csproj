@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CountriesApi.Infrastructure.Impl\CountriesApi.Infrastructure.Impl.csproj" />
     <ProjectReference Include="..\CountriesApi.Library.Contracts\CountriesApi.Library.Contracts.csproj" />
     <ProjectReference Include="..\CountriesApi.Library.Impl\CountriesApi.Library.Impl.csproj" />
   </ItemGroup>

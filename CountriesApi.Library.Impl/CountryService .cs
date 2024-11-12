@@ -1,80 +1,61 @@
 ﻿using CountriesApi.Library.Contracts;
 using CountriesApi.Library.Contracts.DTOs;
 using CountriesApi.XCutting.Enums;
-using System.Text.Json;
-
+using CountriesApi.Infrastructure.Contracts;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace CountriesApi.Library.Impl
 {
     public class CountryService : ICountryService
     {
-        private readonly HttpClient _httpClient;
+        private readonly ICountryRepository _countryRepository;
 
-        public CountryService(HttpClient httpClient)
+        // Inyectamos ICountryRepository en lugar de HttpClient
+        public CountryService(ICountryRepository countryRepository)
         {
-            _httpClient = httpClient;
+            _countryRepository = countryRepository;
         }
-
-        //public async Task<List<CountryDTO>> GetCountryPopulationDataAsync(char initial, int year)
-        //{
-        //    // Llamada
-        //    var response = await _httpClient.GetStringAsync("https://countriesnow.space/api/v0.1/countries/population");
-
-        //    // Deserializar la respuesta del JSON en el CountryRsDTO
-        //    var result = JsonSerializer.Deserialize<CountryRsDTO>(response);
-
-        //    // Filtra y mapear los datos de la respuesta al CountryDTO con los DTOs
-        //    var filteredCountries = result.data
-        //        .Where(c => c.country.StartsWith(initial.ToString(), StringComparison.OrdinalIgnoreCase))
-        //        .Select(c => new CountryDTO
-        //        {
-        //            Country = c.country,
-        //            Population = c.populationCounts.FirstOrDefault(p => p.year == year)?.value ?? 0
-        //        })
-        //        .ToList();
-
-        //    return filteredCountries ?? new List<CountryDTO>();
-        //}
 
         public async Task<object> GetCountryPopulationDataAsync(char initial, int year)
         {
             try
             {
-                var response = await _httpClient.GetStringAsync("https://countriesnow.space/api/v0.1/countries/population");
-                var result = JsonSerializer.Deserialize<CountryRsDTO>(response);
+                // Llamada al repositorio para obtener los datos desde la API
+                var countryEntities = await _countryRepository.GetCountriesByInitialAndYearAsync(initial, year);
 
-                // Si no hay o faltan datos, devuelve 404
-                if (result?.data == null || !result.data.Any())
+                // Si no hay datos, devolver un error 404
+                if (countryEntities == null || !countryEntities.Any())
                 {
-                    return new ResponseErrorsDTO(
-                        RegisterErrorCodesEnum.NotFound,
-                        "No data found for the specified parameters."
-                    );
-                }
-                // filtra y mapea
-                var filteredCountries = result.data
-                    .Where(c => c.country.StartsWith(initial.ToString(), StringComparison.OrdinalIgnoreCase))
-                    .Select(c => new CountryDTO
-                    {
-                        Country = c.country,
-                        Population = c.populationCounts.FirstOrDefault(p => p.year == year)?.value ?? 0
-                    })
-                    .ToList();
-
-                if (!filteredCountries.Any())
-                {
-                    // 404 sino hay las letras indicadas 
                     return new ResponseErrorsDTO(
                         RegisterErrorCodesEnum.NotFound,
                         "No countries found with the specified initial and year."
                     );
                 }
-                // Si todo va bien devuelve la lista
+
+                // Mapear los datos obtenidos a CountryDTO
+                var filteredCountries = countryEntities.Select(entity => new CountryDTO
+                {
+                    Country = entity.country,
+                    Population = entity.populationCounts.FirstOrDefault(p => p.year == year)?.value ?? 0
+                }).ToList();
+
+                // Si no se encuentra ninguna población para el año especificado, devolver 404
+                if (!filteredCountries.Any(c => c.Population > 0))
+                {
+                    return new ResponseErrorsDTO(
+                        RegisterErrorCodesEnum.NotFound,
+                        "No population data found for the specified year."
+                    );
+                }
+
+                // Devolver la lista de países si todo es correcto
                 return filteredCountries;
             }
             catch (Exception ex)
             {
-                // Retorna 500 genérico
+                // En caso de excepción, devolver un error 500
                 return new ResponseErrorsDTO(
                     RegisterErrorCodesEnum.InternalServerError,
                     "An unexpected error occurred while processing the request.",

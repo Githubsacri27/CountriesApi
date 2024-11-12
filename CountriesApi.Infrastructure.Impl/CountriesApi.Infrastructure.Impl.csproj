@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CountriesApi.Infrastructure.Contracts\CountriesApi.Infrastructure.Contracts.csproj" />
+  </ItemGroup>
+
 </Project>
