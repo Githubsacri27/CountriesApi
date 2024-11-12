@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CountriesApi.Library.Contracts\CountriesApi.Library.Contracts.csproj" />
+    <ProjectReference Include="..\CountriesApi.Library.Domain\CountriesApi.Library.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
