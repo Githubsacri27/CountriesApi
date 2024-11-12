@@ -9,6 +9,7 @@ namespace CountriesApi.Library.Contracts
 {
     public interface ICountryService
     {
-        Task<List<CountryDTO>> GetCountryPopulationDataAsync(char initial, int year);
+        //Task<List<CountryDTO>> GetCountryPopulationDataAsync(char initial, int year);
+        Task<object> GetCountryPopulationDataAsync(char initial, int year);
     }
 }

@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CountriesApi.XCutting.Enums\CountriesApi.XCutting.Enums.csproj" />
+  </ItemGroup>
+
 </Project>

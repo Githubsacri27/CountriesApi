@@ -15,19 +15,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5-XCutting", "5-XCutting", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6-Testing", "6-Testing", "{B05C34DD-719A-4A6E-801B-284CB4BDF01A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountriesApi.DistributedService.WebApi", "CountriesApi.DistributedService.WebApi\CountriesApi.DistributedService.WebApi.csproj", "{C163C46D-6B90-415F-8972-BBFB303C5FB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CountriesApi.DistributedService.WebApi", "CountriesApi.DistributedService.WebApi\CountriesApi.DistributedService.WebApi.csproj", "{C163C46D-6B90-415F-8972-BBFB303C5FB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountriesApi.Library.Contracts", "CountriesApi.Library.Contracts\CountriesApi.Library.Contracts.csproj", "{28B1CAD9-2901-4B17-86E4-73B283A6936F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CountriesApi.Library.Contracts", "CountriesApi.Library.Contracts\CountriesApi.Library.Contracts.csproj", "{28B1CAD9-2901-4B17-86E4-73B283A6936F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountriesApi.Library.Impl", "CountriesApi.Library.Impl\CountriesApi.Library.Impl.csproj", "{B6B25716-C399-48D2-A633-8D7A9B790ACD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CountriesApi.Library.Impl", "CountriesApi.Library.Impl\CountriesApi.Library.Impl.csproj", "{B6B25716-C399-48D2-A633-8D7A9B790ACD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountriesApi.Library.Domain", "CountriesApi.Library.Domain\CountriesApi.Library.Domain.csproj", "{BFD9B270-B38A-4751-87EF-F84285B7A8CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CountriesApi.Library.Domain", "CountriesApi.Library.Domain\CountriesApi.Library.Domain.csproj", "{BFD9B270-B38A-4751-87EF-F84285B7A8CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountriesApi.Infrastructure.Contracts", "CountriesApi.Infrastructure.Contracts\CountriesApi.Infrastructure.Contracts.csproj", "{A5B15BE6-92B5-4CDF-8708-80B16B5E58F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CountriesApi.Infrastructure.Contracts", "CountriesApi.Infrastructure.Contracts\CountriesApi.Infrastructure.Contracts.csproj", "{A5B15BE6-92B5-4CDF-8708-80B16B5E58F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountriesApi.Infrastructure.Impl", "CountriesApi.Infrastructure.Impl\CountriesApi.Infrastructure.Impl.csproj", "{0F056964-ECD3-4615-B04F-0BE98A1BDD5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CountriesApi.Infrastructure.Impl", "CountriesApi.Infrastructure.Impl\CountriesApi.Infrastructure.Impl.csproj", "{0F056964-ECD3-4615-B04F-0BE98A1BDD5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountriesApi.XCutting.Enums", "CountriesApi.XCutting.Enums\CountriesApi.XCutting.Enums.csproj", "{988C6CF7-8FD9-45E1-B4B1-2C79D9F1E6A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CountriesApi.XCutting.Enums", "CountriesApi.XCutting.Enums\CountriesApi.XCutting.Enums.csproj", "{988C6CF7-8FD9-45E1-B4B1-2C79D9F1E6A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountriesApi.Testing.UnitTesting", "CountriesApi.Testing.UnitTesting\CountriesApi.Testing.UnitTesting.csproj", "{182BD633-54BE-424B-8C92-0A788D2C06C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{988C6CF7-8FD9-45E1-B4B1-2C79D9F1E6A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{988C6CF7-8FD9-45E1-B4B1-2C79D9F1E6A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{988C6CF7-8FD9-45E1-B4B1-2C79D9F1E6A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{182BD633-54BE-424B-8C92-0A788D2C06C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{182BD633-54BE-424B-8C92-0A788D2C06C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{182BD633-54BE-424B-8C92-0A788D2C06C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{182BD633-54BE-424B-8C92-0A788D2C06C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,6 +81,7 @@ Global
 		{A5B15BE6-92B5-4CDF-8708-80B16B5E58F0} = {4ED14139-9C36-492A-B464-12C68F5FBABB}
 		{0F056964-ECD3-4615-B04F-0BE98A1BDD5E} = {4ED14139-9C36-492A-B464-12C68F5FBABB}
 		{988C6CF7-8FD9-45E1-B4B1-2C79D9F1E6A7} = {B7A777F9-BC1B-43A9-82E0-139E73150C44}
+		{182BD633-54BE-424B-8C92-0A788D2C06C1} = {B05C34DD-719A-4A6E-801B-284CB4BDF01A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AC86897F-C912-4D07-A552-26DA322A1008}
