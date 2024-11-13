@@ -7,9 +7,9 @@ namespace CountriesApi.Library.Domain
 {
     public class Datum
     {
-        public string country { get; set; }
-        public string code { get; set; }
-        public string iso3 { get; set; }
-        public Populationcount[] populationCounts { get; set; }
+        public string? country { get; set; }
+        public string? code { get; set; }
+        public string? iso3 { get; set; }
+        public Populationcount[]? populationCounts { get; set; }
     }
 }

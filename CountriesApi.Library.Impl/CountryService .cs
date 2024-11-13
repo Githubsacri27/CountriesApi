@@ -38,7 +38,7 @@ namespace CountriesApi.Library.Impl
                 var filteredCountries = countryEntities.Select(entity => new CountryDTO
                 {
                     Country = entity.country,
-                    Population = entity.populationCounts.FirstOrDefault(p => p.year == year)?.value ?? 0
+                    Population = entity.populationCounts.FirstOrDefault(p => p.Year == year)?.Value ?? 0
                 }).ToList();
 
                 // Si no se encuentra ninguna población para el año especificado, devolver 404
