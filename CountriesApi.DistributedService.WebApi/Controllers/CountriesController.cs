@@ -26,7 +26,7 @@ namespace CountriesApi.DistributedService.WebApi.Controllers
 
 
         [HttpGet("countries-by-initial")]
-        public async Task<IActionResult> GetCountriesByInitial(char letter, int year)
+        public async Task<IActionResult> GetCountriesByInitial(string letter, int year)
         {
             // Obtenemos la respuesta del servicio
             var response = await _countryService.GetCountryPopulationDataAsync(letter, year);
@@ -37,6 +37,7 @@ namespace CountriesApi.DistributedService.WebApi.Controllers
                 ResponseErrorsDTO errorResponse => errorResponse.ErrorCode switch
                 {
                     RegisterErrorCodesEnum.BadRequest => BadRequest(errorResponse.Message),
+                    RegisterErrorCodesEnum.ValidationError => BadRequest(errorResponse.Message),
                     RegisterErrorCodesEnum.NotFound => NotFound(errorResponse.Message),
                     RegisterErrorCodesEnum.InternalServerError => StatusCode(StatusCodes.Status500InternalServerError, errorResponse.Message),
                     _ => StatusCode(StatusCodes.Status500InternalServerError, "An unexpected error occurred.")

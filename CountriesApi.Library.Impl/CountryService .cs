@@ -18,8 +18,16 @@ namespace CountriesApi.Library.Impl
             _countryRepository = countryRepository;
         }
 
-        public async Task<object> GetCountryPopulationDataAsync(char initial, int year)
+        public async Task<object> GetCountryPopulationDataAsync(string initial, int year)
         {
+            // Validación para asegurar que `initial` sea un solo carácter
+            if (string.IsNullOrEmpty(initial) || initial.Length != 1)
+            {
+                return new ResponseErrorsDTO(
+                    RegisterErrorCodesEnum.InvalidInitialLength,
+                    "The 'initial' parameter must be a single character."
+                );
+            }
             try
             {
                 // Llamada al repositorio para obtener los datos desde la API

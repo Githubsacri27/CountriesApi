@@ -21,7 +21,7 @@ namespace CountriesApi.Infrastructure.Impl
             }
         }
 
-        public async Task<List<CountryEntity>> GetCountriesByInitialAndYearAsync(char initial, int year)
+        public async Task<List<CountryEntity>> GetCountriesByInitialAndYearAsync(string initial, int year)
         {
             var response = await _httpClient.GetStringAsync($"?initial={initial}&year={year}");
             var apiResponse = JsonSerializer.Deserialize<ApiResponseEntity>(response);

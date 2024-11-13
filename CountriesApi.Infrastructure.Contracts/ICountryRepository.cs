@@ -9,6 +9,6 @@ namespace CountriesApi.Infrastructure.Contracts
 {
     public interface ICountryRepository
     {
-        Task<List<CountryEntity>> GetCountriesByInitialAndYearAsync(char initial, int year);
+        Task<List<CountryEntity>> GetCountriesByInitialAndYearAsync(string initial, int year);
     }
 }

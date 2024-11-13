@@ -43,7 +43,7 @@ namespace CountriesApi.Testing.UnitTesting.CountriesApi.Infrastructure.Impl
 
             var httpClient = new HttpClient(mockHttpMessageHandler.Object);
 
-            // Configurar CountryApiSettings para el test
+            // Config CountryApiSettings 
             var settings = new CountryApiSettings
             {
                 BaseUrl = "https://countriesnow.space/api/v0.1/countries/population/"
@@ -54,7 +54,7 @@ namespace CountriesApi.Testing.UnitTesting.CountriesApi.Infrastructure.Impl
             var repository = new CountryRepository(httpClient, options);
 
             // Act
-            var result = await repository.GetCountriesByInitialAndYearAsync('A', 2000);
+            var result = await repository.GetCountriesByInitialAndYearAsync("A", 2000);
 
             // Assert
             Assert.NotNull(result); 

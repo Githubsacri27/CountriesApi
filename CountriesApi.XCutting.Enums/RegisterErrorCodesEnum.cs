@@ -12,6 +12,7 @@ namespace CountriesApi.XCutting.Enums
         BadRequest = 400,
         InternalServerError = 500,
         ExternalApiError = 502,
-        ValidationError = 422
+        ValidationError = 422,
+        InvalidInitialLength = 422
     }
 }
