@@ -1,5 +1,6 @@
 using CountriesApi.Infrastructure.Contracts;
 using CountriesApi.Infrastructure.Impl;
+using CountriesApi.Infrastructure.Impl.Configuration;
 using CountriesApi.Library.Contracts;
 using CountriesApi.Library.Impl;
 
@@ -20,7 +21,10 @@ namespace CountriesApi.DistributedService.WebApi
 
             // CountryRepository y CountryService
             builder.Services.AddScoped<ICountryService, CountryService>();
-            builder.Services.AddScoped<ICountryRepository, CountryRepository>();
+            //builder.Services.AddScoped<ICountryRepository, CountryRepository>();
+            builder.Services.AddHttpClient<ICountryRepository, CountryRepository>();
+            builder.Services.Configure<CountryApiSettings>(builder.Configuration.GetSection("CountryApiSettings"));
+
 
             var app = builder.Build();
 
